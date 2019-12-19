@@ -19,7 +19,7 @@ public class LoginWithValidCredentials {
 	@BeforeClass
 	public void setUp() {
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 	}
 
 	@Test

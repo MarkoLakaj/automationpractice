@@ -22,8 +22,6 @@
 .DS_Store
 .idea
 target/
-.settings/
-automationpractice.iml
 .DS_Store?
 ._*
 .Spotlight-V100
