@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  * @TestLink ID = AP-15 : Login with correct email and password
  * @Summary = The test case is to check the login functionality with valid email and password.
  */
-public class LoginWithValidCredentials {
+public class  LoginWithValidCredentials {
 
 	WebDriver driver;
 
