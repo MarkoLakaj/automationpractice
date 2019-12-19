@@ -25,7 +25,7 @@ public class  LoginWithValidCredentials {
 	@Test
 	public void loginWithValidCredentials() throws InterruptedException{
 
-		driver.get("http://automationpractice.com/");
+		driver.get("http://automationpractice.com");
 		driver.findElement(By.xpath("//a[@class='login']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("email")).sendKeys("bokicabajovic@yahoo.com");
