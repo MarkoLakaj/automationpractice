@@ -45,6 +45,7 @@ public class MaCreateAnAccount {
 //        String createAnAccountTittle = driver.findElement(By.className("page-heading")).getText();
 //        assertEquals(createAnAccountTittle, "AUTHENTICATION");
 //        assertTrue(createAnAccountTittle.contains("CREATE AN ACCOUNT"));
+        Thread.sleep(2000);
         assertTrue(driver.getCurrentUrl().contains("account-creation"));
 
         Thread.sleep(2000);
