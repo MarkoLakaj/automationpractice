@@ -70,6 +70,33 @@ public class BbCreateAccountValidCredentials {
         WebElement company = driver.findElement(By.id("company"));
         company.sendKeys("Hybrid IT Solutions");
 
+        WebElement address1 = driver.findElement(By.id("address1"));
+        company.sendKeys("Bulevar Oslobodjenja 20");
+
+        WebElement address2 = driver.findElement(By.id("address2"));
+        company.sendKeys("Slovacka 15");
+
+        WebElement city = driver.findElement(By.id("city"));
+        city.sendKeys("Novi Sad");
+
+        Select state = new Select(driver.findElement(By.id("id_state")));
+        state.selectByVisibleText("Alaska");
+
+        WebElement zipCode = driver.findElement(By.id("postcode"));
+        zipCode.sendKeys("21000");
+
+        Select country = new Select(driver.findElement(By.id("id_country")));
+        country.selectByVisibleText("United States");
+
+        WebElement additionalInformation = driver.findElement(By.id("other"));
+        additionalInformation.sendKeys("This is a text box to leave a message");
+
+        WebElement homePhone = driver.findElement(By.id("other"));
+        additionalInformation.sendKeys("This is a text box to leave a message");
+
+        WebElement mobilePhone = driver.findElement(By.id("other"));
+        additionalInformation.sendKeys("This is a text box to leave a message");
+
     }
 
     @AfterClass
