@@ -32,8 +32,6 @@ public class  LoginWithValidCredentials {
 		driver.findElement(By.id("passwd")).sendKeys("admin");
 		driver.findElement(By.id("SubmitLogin")).click();
 
-		String profileName = driver.findElement(By.xpath("//a[@class = 'account']/span")).getText();
-		assertEquals(profileName, "Bojana Bajovic");
 	}
 
 	@AfterClass

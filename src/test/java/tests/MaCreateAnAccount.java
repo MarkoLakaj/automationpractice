@@ -8,6 +8,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.Random;
+
 import static org.testng.Assert.*;
 
 /**
@@ -29,7 +32,12 @@ public class MaCreateAnAccount {
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//a[@class='login']")).click();
         Thread.sleep(2000);
-        driver.findElement(By.id("email_create")).sendKeys("kristinaajhga@yahoo.com");
+
+        Random randomEmail = new Random();
+        int randomInt = randomEmail.nextInt(1000);
+
+        driver.findElement(By.id("email_create")).sendKeys("username"+ randomInt + "@yahoo.com");
+
         Thread.sleep(2000);
         driver.findElement(By.xpath("//form[@id='create-account_form']//span[1]")).click();
 
