@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Random;
+
 /**
  * @author : bojana bajovic
  * @TestLink ID = AP-15 : Create an account with blank email and password fields
@@ -30,7 +32,11 @@ public class BbCreateAccountValidCredentials {
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//a[@class='login']")).click();
         Thread.sleep(2000);
-        driver.findElement(By.id("email_create")).sendKeys("dragana@yahoo.com");
+
+        Random randomEmail = new Random();
+        int randomInt = randomEmail.nextInt(1000);
+
+        driver.findElement(By.id("email_create")).sendKeys("username"+ randomInt +"@gmail.com");
         driver.findElement(By.id("SubmitCreate")).click();
         Thread.sleep(2000);
 
@@ -71,10 +77,12 @@ public class BbCreateAccountValidCredentials {
         company.sendKeys("Hybrid IT Solutions");
 
         WebElement address1 = driver.findElement(By.id("address1"));
-        company.sendKeys("Bulevar Oslobodjenja 20");
+        address1.sendKeys("Bulevar Oslobodjenja");
+
 
         WebElement address2 = driver.findElement(By.id("address2"));
-        company.sendKeys("Slovacka 15");
+        address2.sendKeys("Slovacka 15");
+        Thread.sleep(2000);
 
         WebElement city = driver.findElement(By.id("city"));
         city.sendKeys("Novi Sad");
@@ -91,11 +99,22 @@ public class BbCreateAccountValidCredentials {
         WebElement additionalInformation = driver.findElement(By.id("other"));
         additionalInformation.sendKeys("This is a text box to leave a message");
 
-        WebElement homePhone = driver.findElement(By.id("other"));
-        additionalInformation.sendKeys("This is a text box to leave a message");
+        WebElement homePhone = driver.findElement(By.id("phone"));
+        homePhone.sendKeys("+381215556666");
 
-        WebElement mobilePhone = driver.findElement(By.id("other"));
-        additionalInformation.sendKeys("This is a text box to leave a message");
+        WebElement mobilePhone = driver.findElement(By.id("phone_mobile"));
+        mobilePhone.sendKeys("+381654545254");
+
+        WebElement alias = driver.findElement(By.id("alias"));
+        alias.clear();
+        alias.sendKeys("Bulevar Oslobodjenja 20");
+
+       driver.findElement(By.xpath("//span[contains(text(),'Register')]")).click();
+        //submitButton.click();
+        Thread.sleep(2000);
+
+        String profileName = driver.findElement(By.xpath("//a[@class ='account']")).getText();
+        assertEquals(profileName, "Dragana Draganovic");
 
     }
 
