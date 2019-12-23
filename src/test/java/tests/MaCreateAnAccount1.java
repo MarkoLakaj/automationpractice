@@ -7,12 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CreateAnAccount;
 import pages.CreateAnAccountHomePage;
+import pages.LoginPage;
 
 public class MaCreateAnAccount1 {
-    String basePath = "http://automationpractice.com";
+    String basePath = "http://automationpractice.com"; // ne treba da stoji u ovoj klasi
     WebDriver driver = new ChromeDriver();
     CreateAnAccount createAnAccount = new CreateAnAccount(driver);
     CreateAnAccountHomePage createAnAccountHomePage = new CreateAnAccountHomePage(driver);
+    LoginPage loginPage = new LoginPage(driver);
 
     @BeforeTest
     public void setUp() {
@@ -21,15 +23,15 @@ public class MaCreateAnAccount1 {
 
     @Test
     public void Create() throws InterruptedException {
-        createAnAccount.navigateToUrl(basePath);
-        createAnAccount.clickSignInButton();
+        loginPage.navigateToUrl(basePath);
+        loginPage.clickSignInButton();
         Thread.sleep(2000);
         createAnAccount.setEmail("");
         Thread.sleep(2000);
         createAnAccount.clickCreateAnAccountButton();
         assertEquals(createAnAccount.getPageHeading(), "AUTHENTICATION");
         Thread.sleep(2000);
-        createAnAccount.checkRadio1();
+        createAnAccount.checkRadioFemale();
         createAnAccount.setFirstName("Maja");
         createAnAccount.setLastName("Andjelkovic");
         createAnAccount.setPassword("ksajdsakd");
@@ -49,6 +51,7 @@ public class MaCreateAnAccount1 {
         createAnAccount.setMobilePhone("448426626");
         createAnAccount.setLastAddress("Cirpanovaaaaa");
         createAnAccount.clickRegistrationButton();
+        //TODO getProfileName() pozovi iz homepage objekta
         assertEquals(createAnAccountHomePage.getProfileName(), "Maja Andjelkovic");
         Thread.sleep(2000);
     }

@@ -31,7 +31,7 @@ public class CreateAnAccount {
         driver.findElement(By.id("customer_lastname")).sendKeys(strLastName);
     }
 
-    public void checkRadio1() {
+    public void checkRadioFemale() {
         driver.findElement(By.id("id_gender2")).click();
     }
 
@@ -54,22 +54,27 @@ public class CreateAnAccount {
         yearsOfBirth.selectByValue(yourYear);
     }
 
+    //TODO rename u tacnuradnju koju obavlja metoda
     public void clickCheck1() {
         driver.findElement(By.id("newsletter")).click();
     }
 
+    //TODO rename u tacnuradnju koju obavlja metoda
     public void clickCheck2() {
         driver.findElement(By.id("optin")).click();
     }
 
+    // TODO code formatting
     public void setCompany(String strCompany) {
         driver.findElement(By.id("company")).sendKeys(strCompany);
     }
 
+    //TODO rename u tacnuradnju koju obavlja metoda
     public void setAddress1(String strAddress1) {
         driver.findElement(By.id("address1")).sendKeys(strAddress1);
     }
 
+    //TODO rename u tacnuradnju koju obavlja metoda
     public void setAddress2(String strAddress2) {
         driver.findElement(By.id("address2")).sendKeys(strAddress2);
     }
@@ -117,13 +122,5 @@ public class CreateAnAccount {
 
     public void closeApp() {
         driver.quit();
-    }
-
-    public void clickSignInButton() {
-        driver.findElement(By.xpath("//a[@class='login']")).click();
-    }
-
-    public void navigateToUrl(String url) {
-        driver.get(url);
     }
 }
