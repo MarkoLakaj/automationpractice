@@ -34,9 +34,7 @@ public class MaLoginWithValidCredentials1 {
 
 
     @AfterTest
-    public void closeApp() {
-        driver.quit();
-    }
+    public void closeApp() {}
 }
 
 
