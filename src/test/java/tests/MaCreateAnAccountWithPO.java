@@ -5,15 +5,15 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CreateAnAccount;
-import pages.CreateAnAccountHomePage;
+import pages.CreateAnAccountPage;
+import pages.HomePage;
 import pages.LoginPage;
 
-public class MaCreateAnAccount1 {
+public class MaCreateAnAccountWithPO {
     String basePath = "http://automationpractice.com"; // ne treba da stoji u ovoj klasi
     WebDriver driver = new ChromeDriver();
-    CreateAnAccount createAnAccount = new CreateAnAccount(driver);
-    CreateAnAccountHomePage createAnAccountHomePage = new CreateAnAccountHomePage(driver);
+    CreateAnAccountPage createAnAccount = new CreateAnAccountPage(driver);
+    HomePage HomePage = new HomePage(driver);
     LoginPage loginPage = new LoginPage(driver);
 
     @BeforeTest
@@ -38,11 +38,11 @@ public class MaCreateAnAccount1 {
         createAnAccount.setDayOfBirth("27");
         createAnAccount.setMonthOfBirth("5");
         createAnAccount.setYearOfBirth("1995");
-        createAnAccount.clickCheck1();
-        createAnAccount.clickCheck2();
+        createAnAccount.clickNewsletter();
+        createAnAccount.clickSpecialOffers();
         createAnAccount.setCompany("bla bla");
-        createAnAccount.setAddress1("Cirpanova");
-        createAnAccount.setAddress2("Cirpanovaa");
+        createAnAccount.setMainAddress("Cirpanova");
+        createAnAccount.setSecondaryAddress("Cirpanovaa");
         createAnAccount.setCity("Novi Sad");
         createAnAccount.setState("Alaska");
         createAnAccount.setZip("00000");
@@ -51,8 +51,7 @@ public class MaCreateAnAccount1 {
         createAnAccount.setMobilePhone("448426626");
         createAnAccount.setLastAddress("Cirpanovaaaaa");
         createAnAccount.clickRegistrationButton();
-        //TODO getProfileName() pozovi iz homepage objekta
-        assertEquals(createAnAccountHomePage.getProfileName(), "Maja Andjelkovic");
+        assertEquals(HomePage.getProfileName(), "Maja Andjelkovic");
         Thread.sleep(2000);
     }
 

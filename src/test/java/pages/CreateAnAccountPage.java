@@ -5,10 +5,10 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
-public class CreateAnAccount {
+public class CreateAnAccountPage {
     WebDriver driver;
 
-    public CreateAnAccount(WebDriver driver) {
+    public CreateAnAccountPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -54,28 +54,23 @@ public class CreateAnAccount {
         yearsOfBirth.selectByValue(yourYear);
     }
 
-    //TODO rename u tacnuradnju koju obavlja metoda
-    public void clickCheck1() {
+    public void clickNewsletter() {
         driver.findElement(By.id("newsletter")).click();
     }
 
-    //TODO rename u tacnuradnju koju obavlja metoda
-    public void clickCheck2() {
+    public void clickSpecialOffers() {
         driver.findElement(By.id("optin")).click();
     }
 
-    // TODO code formatting
     public void setCompany(String strCompany) {
         driver.findElement(By.id("company")).sendKeys(strCompany);
     }
 
-    //TODO rename u tacnuradnju koju obavlja metoda
-    public void setAddress1(String strAddress1) {
+    public void setMainAddress(String strAddress1) {
         driver.findElement(By.id("address1")).sendKeys(strAddress1);
     }
 
-    //TODO rename u tacnuradnju koju obavlja metoda
-    public void setAddress2(String strAddress2) {
+    public void setSecondaryAddress(String strAddress2) {
         driver.findElement(By.id("address2")).sendKeys(strAddress2);
     }
 
