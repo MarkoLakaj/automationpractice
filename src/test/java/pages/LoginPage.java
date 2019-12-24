@@ -5,38 +5,25 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
     WebDriver driver;
-    By email = By.id("email");
-    By password = By.id("passwd");
-    By login = By.id("SubmitLogin");
-    By signin = By.xpath("//a[@class='login']");
-
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    //    Set url
-    public void navigateToUrl(String url) {
-        driver.get(url);
-    }
 
 //    click sign in button
     public void clickSignInButton() {
-    driver.findElement(signin).click();
+    driver.findElement(By.xpath("//a[@class='login']")).click();
     }
 
 //    Set email in textbox
     public void setEmail(String email) {
-        driver.findElement(this.email).sendKeys(email);
+        driver.findElement(By.id("email")).sendKeys(email);
     }
 
 //    Set password in textbox
     public void setPassword(String password) {
-        driver.findElement(this.password).sendKeys(password);
+        driver.findElement(By.id("passwd")).sendKeys(password);
     }
 
 //    Click on login button
     public void clickLogin() {
-        driver.findElement(login).click();
+        driver.findElement(By.id("SubmitLogin")).click();
     }
 
 //  Close app

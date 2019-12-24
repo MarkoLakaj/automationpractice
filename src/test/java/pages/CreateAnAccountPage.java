@@ -3,14 +3,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+
 import java.util.Random;
 
 public class CreateAnAccountPage {
     WebDriver driver;
-
-    public CreateAnAccountPage(WebDriver driver) {
-        this.driver = driver;
-    }
 
     Random randomEmail = new Random();
     int randomInt = randomEmail.nextInt(1000);

@@ -8,13 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CreateAnAccountPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.BasePage;
+
 
 public class MaCreateAnAccountWithPO {
-    String basePath = "http://automationpractice.com"; // ne treba da stoji u ovoj klasi
     WebDriver driver = new ChromeDriver();
-    CreateAnAccountPage createAnAccount = new CreateAnAccountPage(driver);
-    HomePage HomePage = new HomePage(driver);
-    LoginPage loginPage = new LoginPage(driver);
+    CreateAnAccountPage createAnAccount = new CreateAnAccountPage();
+    HomePage HomePage = new HomePage();
+    LoginPage loginPage = new LoginPage();
+    BasePage basePage = new BasePage(driver);
 
     @BeforeTest
     public void setUp() {
@@ -23,7 +25,7 @@ public class MaCreateAnAccountWithPO {
 
     @Test
     public void Create() throws InterruptedException {
-        loginPage.navigateToUrl(basePath);
+        basePage.navigateToUrl("http://automationpractice.com");
         loginPage.clickSignInButton();
         Thread.sleep(2000);
         createAnAccount.setEmail("");
