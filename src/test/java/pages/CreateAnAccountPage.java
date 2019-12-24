@@ -6,8 +6,10 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
-public class CreateAnAccountPage {
-    WebDriver driver;
+public class CreateAnAccountPage extends BasePage{
+
+    public CreateAnAccountPage() {
+    }
 
     Random randomEmail = new Random();
     int randomInt = randomEmail.nextInt(1000);
@@ -111,8 +113,5 @@ public class CreateAnAccountPage {
     public String getPageHeading() {
         return driver.findElement(By.xpath("//h1[@class='page-heading']")).getText();
     }
-
-    public void closeApp() {
-        driver.quit();
     }
-}
+

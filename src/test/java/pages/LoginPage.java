@@ -2,13 +2,14 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 
-    WebDriver driver;
+    public LoginPage() {
+    }
 
-//    click sign in button
+    //    click sign in button
     public void clickSignInButton() {
-    driver.findElement(By.xpath("//a[@class='login']")).click();
+        driver.findElement(By.xpath("//a[@class='login']")).click();
     }
 
 //    Set email in textbox
@@ -26,14 +27,4 @@ public class LoginPage {
         driver.findElement(By.id("SubmitLogin")).click();
     }
 
-//  Close app
-    public void closeApp() {
-        driver.quit();
-    }
-
-    public void LoginToAutomationPractice(String strEmail, String strPassword) {
-        this.setEmail(strEmail);
-        this.setPassword(strPassword);
-        this.clickLogin();
-    }
 }

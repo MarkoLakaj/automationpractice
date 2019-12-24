@@ -2,12 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasePage {
-    WebDriver driver;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+   public static WebDriver driver;
+
+    public BasePage() {
     }
 
     public void navigateToUrl(String url) {
@@ -15,7 +16,12 @@ public class BasePage {
     }
 
     public void setUp() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
+    }
+
+    public void closeApp() {
+        driver.quit();
     }
 
 //    public void clickOnElement() {

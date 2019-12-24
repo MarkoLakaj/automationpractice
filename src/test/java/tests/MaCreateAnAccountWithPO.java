@@ -11,21 +11,19 @@ import pages.LoginPage;
 import pages.BasePage;
 
 
-public class MaCreateAnAccountWithPO {
-    WebDriver driver = new ChromeDriver();
+public class MaCreateAnAccountWithPO extends BasePage{
     CreateAnAccountPage createAnAccount = new CreateAnAccountPage();
     HomePage HomePage = new HomePage();
     LoginPage loginPage = new LoginPage();
-    BasePage basePage = new BasePage(driver);
 
     @BeforeTest
     public void setUp() {
-        driver.manage().window().maximize();
+        setUp();
     }
 
     @Test
     public void Create() throws InterruptedException {
-        basePage.navigateToUrl("http://automationpractice.com");
+        navigateToUrl("http://automationpractice.com");
         loginPage.clickSignInButton();
         Thread.sleep(2000);
         createAnAccount.setEmail("");

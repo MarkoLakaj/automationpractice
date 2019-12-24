@@ -10,20 +10,19 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 
-public class MaLoginWithValidCredentialsWithPO {
-    WebDriver driver = new ChromeDriver();
+public class MaLoginWithValidCredentialsWithPO extends BasePage{
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
-    BasePage basePage = new BasePage(driver);
+
 
     @BeforeTest
-    public void setUp() {
-       basePage.setUp();
+    public void setup() {
+        setUp();
     }
 
     @Test
     public void Login() throws InterruptedException{
-        basePage.navigateToUrl("http://automationpractice.com");
+        navigateToUrl("http://automationpractice.com");
         Thread.sleep(2000);
         loginPage.clickSignInButton();
         loginPage.setEmail("maja.27@yahoo.com");
@@ -33,7 +32,8 @@ public class MaLoginWithValidCredentialsWithPO {
     }
 
     @AfterTest
-    public void closeApp() {}
+    public void closeApp() {
+    }
 }
 
 
