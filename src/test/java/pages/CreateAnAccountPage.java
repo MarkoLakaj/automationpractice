@@ -1,10 +1,13 @@
 package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-
 import java.util.Random;
+import java.util.function.Function;
 
 public class CreateAnAccountPage extends BasePage{
 
@@ -15,10 +18,16 @@ public class CreateAnAccountPage extends BasePage{
     int randomInt = randomEmail.nextInt(1000);
 
     public void setEmail(String strEmail) {
-        driver.findElement(By.id("email_create")).sendKeys("maja" + randomInt + "@yahoo.com");
+        WebElement element = waitF.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.id("email_create"));
+            }
+        });
+        element.sendKeys("maja" + randomInt + "@yahoo.com");
     }
 
     public void clickCreateAnAccountButton() {
+        waitF.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@id='create-account_form']//span[1]")));
         driver.findElement(By.xpath("//form[@id='create-account_form']//span[1]")).click();
     }
 

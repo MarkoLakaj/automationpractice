@@ -1,33 +1,32 @@
 package tests;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
+import pages.BasePage;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * @author: maja andjelkovic
  * @TestLink ID = ne mogu da vidim, ne radi test link
  * @Summary = Verify that user can't be able to login with invalid email.
  */
-public class MaLoginWithInvalidEmail {
-
-    WebDriver driver;
+public class MaLoginWithInvalidEmail extends BasePage {
 
     @BeforeClass
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    public void setup() {
+        setUp();
     }
 
     @Test
-    public void loginWithInvalidEmail() throws InterruptedException {
+    public void loginWithInvalidEmail() {
 
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//a[@class='login']")).click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
         driver.findElement(By.id("email")).sendKeys("maja.27yahoo.com");
         driver.findElement(By.id("passwd")).sendKeys("caocaocao");
         driver.findElement(By.id("SubmitLogin")).click();
@@ -38,6 +37,6 @@ public class MaLoginWithInvalidEmail {
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+        closeApp();
     }
 }

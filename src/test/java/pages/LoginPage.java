@@ -1,6 +1,5 @@
 package pages;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage{
 
@@ -9,22 +8,26 @@ public class LoginPage extends BasePage{
 
     //    click sign in button
     public void clickSignInButton() {
-        driver.findElement(By.xpath("//a[@class='login']")).click();
+        By signInButtonLocator = By.xpath("//a[@class='login']");
+        clickOnElement(signInButtonLocator);
     }
 
 //    Set email in textbox
     public void setEmail(String email) {
-        driver.findElement(By.id("email")).sendKeys(email);
+        By emailLocator = By.id("email");
+        sendKeysInElement(emailLocator, email);
     }
 
 //    Set password in textbox
     public void setPassword(String password) {
-        driver.findElement(By.id("passwd")).sendKeys(password);
+        By passwordLocator = By.id("passwd");
+        sendKeysInElement(passwordLocator, password);
     }
 
 //    Click on login button
     public void clickLogin() {
-        driver.findElement(By.id("SubmitLogin")).click();
+        By clickLoginLocator = By.id("SubmitLogin");
+        clickOnElement(clickLoginLocator);
     }
 
 }
