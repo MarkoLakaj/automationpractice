@@ -19,7 +19,7 @@ public class MaCreateAnAccountWithPO {
     }
 
     @Test
-    public void Create() throws InterruptedException {
+    public void Create() {
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         HomePage homePage = new HomePage();
         navigateToUrl("http://automationpractice.com");
@@ -28,7 +28,6 @@ public class MaCreateAnAccountWithPO {
         createAnAccountPage.setEmail("");
         createAnAccountPage.clickCreateAnAccountButton();
         assertEquals(createAnAccountPage.getPageHeading(), "AUTHENTICATION");
-        Thread.sleep(2000);
         createAnAccountPage.checkRadioFemale();
         createAnAccountPage.setFirstName("Maja");
         createAnAccountPage.setLastName("Andjelkovic");
@@ -50,7 +49,6 @@ public class MaCreateAnAccountWithPO {
         createAnAccountPage.setLastAddress("Cirpanovaaaaa");
         createAnAccountPage.clickRegistrationButton();
         assertEquals(homePage.getProfileName(), "Maja Andjelkovic");
-        Thread.sleep(2000);
     }
 
     @AfterTest

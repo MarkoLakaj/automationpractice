@@ -39,6 +39,11 @@ public class BasePage {
         driver.findElement(locator).click();
     }
 
+    public void clickOnCheckbox (By locator) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        driver.findElement(locator).click();
+    }
+
     public void sendKeysInElement(By locator, String text) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         driver.findElement(locator).sendKeys(text);

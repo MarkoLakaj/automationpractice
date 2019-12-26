@@ -18,6 +18,7 @@ public class CreateAnAccountPage extends BasePage{
     int randomInt = randomEmail.nextInt(1000);
 
     public void setEmail(String strEmail) {
+
         WebElement element = waitF.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 return driver.findElement(By.id("email_create"));
@@ -27,8 +28,8 @@ public class CreateAnAccountPage extends BasePage{
     }
 
     public void clickCreateAnAccountButton() {
-        waitF.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@id='create-account_form']//span[1]")));
-        driver.findElement(By.xpath("//form[@id='create-account_form']//span[1]")).click();
+        By clickCreateAnAccountButtonLocator = By.xpath("//form[@id='create-account_form']//span[1]");
+        clickOnElement(clickCreateAnAccountButtonLocator);
     }
 
     public void setFirstName(String strFirstName) {
@@ -40,7 +41,8 @@ public class CreateAnAccountPage extends BasePage{
     }
 
     public void checkRadioFemale() {
-        driver.findElement(By.id("id_gender2")).click();
+        By checkRadioFemaleLocator = By.id("id_gender2");
+        clickOnElement(checkRadioFemaleLocator);
     }
 
     public void setPassword(String strPassword) {
@@ -63,11 +65,13 @@ public class CreateAnAccountPage extends BasePage{
     }
 
     public void clickNewsletter() {
-        driver.findElement(By.id("newsletter")).click();
+        By clickNewsletterLocator = By.id("newsletter");
+        clickOnCheckbox(clickNewsletterLocator);
     }
 
     public void clickSpecialOffers() {
-        driver.findElement(By.id("optin")).click();
+        By clickSpecialOffersLocator = By.id("optin");
+        clickOnCheckbox(clickSpecialOffersLocator);
     }
 
     public void setCompany(String strCompany) {
@@ -116,7 +120,8 @@ public class CreateAnAccountPage extends BasePage{
     }
 
     public void clickRegistrationButton() {
-        driver.findElement(By.xpath("//span[contains(text(),'Register')]")).click();
+        By clickRegistrationButtonLocator = By.xpath("//span[contains(text(),'Register')]");
+        clickOnElement(clickRegistrationButtonLocator);
     }
 
     public String getPageHeading() {
